@@ -12,7 +12,7 @@ C     coefficients.
       IMPLICIT NONE
       INTEGER     MAXRANK, NRANK
       REAL        WAVELENGTH, RADIUS
-      REAL        EXTINCTION, SCATTER, WIGCOEF(6,0:*)
+      REAL       EXTINCTION, SCATTER, WIGCOEF(6,0:*)
       INTEGER     IERR
       CHARACTER   ERRMSG*600
       COMPLEX     MINDEX
