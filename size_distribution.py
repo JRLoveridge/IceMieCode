@@ -23,6 +23,8 @@ import xarray as xr
 import numpy as np
 import miecode
 
+import checks
+
 def gamma(radii, reff, veff=None, alpha=None, particle_density=1.0,
           normalization='density'):
     """
@@ -84,7 +86,7 @@ def gamma(radii, reff, veff=None, alpha=None, particle_density=1.0,
                 alpha=alpha,
                 gamma=gamma_values,
                 ndist=reff.size)
-    pyshdom.checks.check_errcode(ierr, errmsg)
+    checks.check_errcode(ierr, errmsg)
 
     if normalization == 'geometric_extinction':
         number_density /= 1e-3*(2*number_density*np.pi*np.atleast_1d(radii)[:, None]**2).sum(axis=0)
@@ -162,7 +164,7 @@ def lognormal(radii, reff, veff=None, alpha=None, particle_density=1.0,
                 alpha=alpha,
                 gamma=gamma_values,
                 ndist=reff.size)
-    pyshdom.checks.check_errcode(ierr, errmsg)
+    checks.check_errcode(ierr, errmsg)
 
     if normalization == 'geometric_extinction':
         number_density /= 1e-3*(2*number_density*np.pi*np.atleast_1d(radii)[:, None]**2).sum(axis=0)
